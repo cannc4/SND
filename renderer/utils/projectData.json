@@ -1,0 +1,400 @@
+{
+    "AUDIOENGINE": {
+        "MIXER":{ 
+          "MIXBUS": [
+            {
+              "name": "MASTER",
+              "id": "0",
+              "color": "EDEDED",
+              "STATE": {
+                "pan": "-0.66",
+                "level": "0.6",
+                "muted": "false"
+              },
+              "SEND": [
+                {
+                  "id": "0",
+                  "targetid": "0",
+                  "level": "0.88"
+                }
+              ],
+              "LAYOUT": {
+              }
+            },  
+            {
+              "name": "SubMix",
+              "id": "1",
+              "color": "EDEDED",
+              "STATE": {
+                "pan": "0.5",
+                "level": "0.8",
+                "muted": "0"
+              },
+              "SEND": [
+                {
+                  "id": "0",
+                  "targetid": "0",
+                  "level": "1"
+                },
+                {
+                  "id": "2",
+                  "targetid": "2",
+                  "level": "0.19"
+                }
+              ],
+              "LAYOUT": {
+              }
+            },
+            {
+              "name": "AnotherMix",
+              "id": "2",
+              "color": "EDEDED",
+              "STATE": {
+                "pan": "-0.66",
+                "level": "0.6",
+                "muted": "false"
+              },
+              "SEND": [
+                {
+                  "id": "0",
+                  "targetid": "0",
+                  "level": "0.88"
+                }
+              ],
+              "LAYOUT": {
+              }
+            }
+          ]
+        },
+        "TRACKGROUPS": {
+          "TRACKGROUP": [
+            {
+              "id": "0",
+              "name": "TRACKGROUP-1",
+              "color": "EDEDED",
+              "level": "0.8",
+              "solo": "0",
+              "mute": "0",
+              "TRACK": [
+                {
+                  "id": "0",
+                  "name": "Track-0-1-MIDI",
+                  "color": "EDEDED",
+                  "type": "MIDI",
+                  "solo": "0",
+                  "mute": "0",
+                  "level": "0.9",
+                  "BLOCK": [
+                    {
+                      "id": "0",
+                      "start": "00:00:31.324",
+                      "end": "00:01:17.721",
+                      "MIDIEVENT": [
+                        {
+                          "time": "00:00:14.12",
+                          "code": "0x91456a"
+                        },
+                        {
+                          "time": "00:00:14.88",
+                          "code": "0x81450f"
+                        },
+                        {
+                          "time": "00:01:34.12",
+                          "code": "0x91456a"
+                        },
+                        {
+                          "time": "00:01:48.12",
+                          "code": "0x81450f"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "1",
+                  "name": "Track-0-2-AUDIO",
+                  "color": "EDEDED",
+                  "type": "AUDIO",
+                  "solo": "0",
+                  "mute": "0",
+                  "level": "0.9",
+                  "BLOCK": [
+                    {
+                      "id": "0",
+                      "start": "00:00:31.324",
+                      "end": "00:01:17.721"
+                    }
+                  ]
+                }
+              ],
+              "GRAPH": {
+                "NODES": [
+                  {
+                    "id": "0",
+                    "x": "-122",
+                    "y": "-32",
+                    "trackid": "0",
+                    "name": "Track-0-1-MIDI",
+                    "type": "MIDI",
+                    "LAYOUT": {
+                      "OUTPUT": {
+                        "MIDICHAN": {
+                          "id": "0",
+                          "name": "MIDIOut"
+                        }
+                      }
+                    },
+                    "STATE": {
+                      "cdata": "base-64 filter state data"
+                    }
+                  },
+                  {
+                    "id": "1",
+                    "x": "311",
+                    "y": "292",
+                    "trackid": "1",
+                    "name": "Track-0-2-AUDIO",
+                    "type": "AUDIO",
+                    "LAYOUT": {
+                      "OUTPUT": {
+                        "BUS": [
+                          {
+                            "name": "AudioOut0/1",
+                            "id": "0",
+                            "layout": "stereo"
+                          }
+                        ]
+                      }
+                    },
+                    "STATE": {
+                      "cdata": "base-64 filter state data"
+                    }
+                  },
+                  {
+                    "id": "2",
+                    "x": "-96",
+                    "y": "451",
+                    "STATE": {
+                      "cdata": "base-64 filter state data"
+                    },
+                    "PLUGIN": {
+                      "name": "FM-SYNTH-Plugin",
+                      "descriptiveName": "theSynth We Are Using",
+                      "format": "VST3",
+                      "version": "1.1a",
+                      "manufacturer": "ince.io",
+                      "file": "file://PluginsDir/theSynth.dll",
+                      "uid": "deadbeef",
+                      "isInstrument": "true",
+                      "numInputs": "1",
+                      "numOutputs": "1",
+                      "isShell": "false"
+                    },
+                    "LAYOUT": {
+                      "INPUT": {
+                        "MIDICHAN": {
+                          "id": "0",
+                          "name": "MIDIIn"
+                        }
+                      },
+                      "OUTPUT": {
+                        "BUS": [
+                          {
+                            "id": "0",
+                            "name": "AudioOut",
+                            "layout": "stereo"
+                          },
+                          {
+                            "id": "2",
+                            "name": "AudioOut2",
+                            "layout": "stereo"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "id": "3",
+                    "x": "327.65010737091",
+                    "y": "-304.024597681717",
+                    "STATE": {
+                      "cdata": "base-64 filter state data"
+                    },
+                    "PLUGIN": {
+                      "name": "Reverb Plugin",
+                      "descriptiveName": "a reverb plugin",
+                      "format": "VST3",
+                      "version": "2.0",
+                      "manufacturer": "SomeGuy's Audio",
+                      "file": "file://PluginsDir/theReverb.dll",
+                      "uid": "baadf00d",
+                      "isInstrument": "false",
+                      "numInputs": "4",
+                      "numOutputs": "1",
+                      "isShell": "false"
+                    },
+                    "LAYOUT": {
+                      "INPUT": {
+                        "BUS": [
+                          {
+                            "id": "0",
+                            "name": "AudioIn0",
+                            "layout": "mono"
+                          },
+                          {
+                            "id": "1",
+                            "name": "AudioIn1",
+                            "layout": "mono"
+                          },
+                          {
+                            "id": "2",
+                            "name": "AudioIn2",
+                            "layout": "mono"
+                          },
+                          {
+                            "id": "3",
+                            "name": "AudioIn3",
+                            "layout": "mono"
+                          }
+                        ]
+                      },
+                      "OUTPUT": {
+                        "BUS": [
+                          {
+                            "id": "0",
+                            "name": "AudioOut",
+                            "layout": "stereo"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "id": "4",
+                    "x": "534",
+                    "y": "52",
+                    "mixbusid": "0",
+                    "name": "MASTER",
+                    "type": "MIX",
+                    "LAYOUT": {
+                      "INPUT": {
+                        "BUS": [
+                          {
+                            "id": "0",
+                            "name": "AudioIn",
+                            "layout": "stereo"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "id": "5",
+                    "x": "524",
+                    "y": "52",
+                    "mixbusid": "1",
+                    "name": "SubMix",
+                    "type": "MIX",
+                    "LAYOUT": {
+                      "INPUT": {
+                        "BUS": [
+                          {
+                            "id": "0",
+                            "name": "AudioIn",
+                            "layout": "stereo"
+                          }
+                        ]
+                      },
+                      "OUTPUT": {
+                        "BUS": [
+                          {
+                            "id": "0",
+                            "name": "AudioIn",
+                            "layout": "stereo"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "id": "6",
+                    "x": "504",
+                    "y": "52",
+                    "mixbusid": "2",
+                    "name": "AnotherMix",
+                    "type": "MIX",
+                    "LAYOUT": {
+                      "INPUT": {
+                        "BUS": [
+                          {
+                            "id": "0",
+                            "name": "AudioIn",
+                            "layout": "stereo"
+                          }
+                        ]
+                      },
+                      "OUTPUT": {
+                        "BUS": [
+                          {
+                            "id": "0",
+                            "name": "AudioIn",
+                            "layout": "stereo"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ],
+                "CONNECTIONS": [
+                  {
+                    "srcNode": "0",
+                    "dstNode": "2",
+                    "srcPort": "0",
+                    "dstPort": "0"
+                  },
+                  {
+                    "srcNode": "1",
+                    "dstNode": "3",
+                    "srcPort": "0",
+                    "dstPort": "0"
+                  },
+                  {
+                    "srcNode": "1",
+                    "dstNode": "3",
+                    "srcPort": "1",
+                    "dstPort": "1"
+                  },
+                  {
+                    "srcNode": "2",
+                    "dstNode": "3",
+                    "srcPort": "0",
+                    "dstPort": "0"
+                  },
+                  {
+                    "srcNode": "2",
+                    "dstNode": "3",
+                    "srcPort": "1",
+                    "dstPort": "1"
+                  },
+                  {
+                    "srcNode": "3",
+                    "dstNode": "4",
+                    "srcPort": "0",
+                    "dstPort": "0"
+                  },
+                  {
+                    "srcNode": "3",
+                    "dstNode": "4",
+                    "srcPort": "1",
+                    "dstPort": "1"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+    },
+    "title" : "Demo Project",
+    "layout" : "stereo",
+    "version" : "0.12"
+}

@@ -1,0 +1,96 @@
+.MenuBar {
+  background: #1b1b1b;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-bottom: solid 1px var(--global-color);
+  padding: 5px 10px 5px 15px; }
+
+.Logo {
+  margin-bottom: 0px !important;
+  margin-right: 10px !important;
+  opacity: 0.9;
+  cursor: pointer; }
+  .Logo:hover {
+    opacity: 0.7; }
+
+/* Radiation Animation */
+@keyframes radiate {
+  to {
+    transform: scale(1.5);
+    opacity: 0.0; } }
+
+@keyframes radiate_wout_scale {
+  to {
+    box-shadow: 0 0 0 3px rgba(200, 0, 0, 0.2) inset; } }
+
+/* Save Animation */
+@keyframes flusa {
+  0% {
+    transform: scale(1); }
+  20% {
+    transform: scale(0.9); }
+  100% {
+    transform: scale(1); } }
+
+.SaveExecuted {
+  animation-name: flusa;
+  animation-duration: 1s; }
+
+.TimerControls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+  .TimerControls > .Button.Record {
+    color: var(--record-color);
+    animation: radiate 2s infinite; }
+
+.recording {
+  z-index: 1;
+  box-shadow: 0 0 0 2px var(--record-color) inset;
+  animation: radiate_wout_scale 2s infinite alternate; }
+
+.TimerControls > .Button {
+  font-size: 16px;
+  vertical-align: middle;
+  border: none;
+  margin-right: 5px; }
+  .TimerControls > .Button:hover {
+    background-color: transparent;
+    color: var(--accent-color-opaque); }
+
+.RMSVis {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  margin: 0 20px; }
+
+.OtherControls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+  .OtherControls > button {
+    height: 75%;
+    width: 50px;
+    border-color: rgba(255, 255, 255, 0.1); }
+
+.ServerStatus {
+  width: 4px;
+  height: 75%;
+  margin-right: -1px;
+  background: #fff;
+  opacity: 0.6;
+  transition: all 100ms ease; }
+  .ServerStatus.inactive {
+    background: #bf2618; }
+  .ServerStatus.ready {
+    background: #ffc005; }
+  .ServerStatus.running {
+    background: #1fc60f; }

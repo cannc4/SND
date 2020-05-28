@@ -1,0 +1,44 @@
+matrix:
+  include:
+  - os: osx
+    osx_image: "xcode11.3"
+
+language: node_js
+node_js:
+  - 'stable'
+  
+cache:
+  directories:
+  - node_modules
+
+script: echo "npm test temporarily disabled"
+install: 
+- npm install && npm run install-app-deps
+- if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install openssl ; fi
+- if [ "$TRAVIS_OS_NAME" = "osx" ]; then chmod +x add-osx-cert.sh ; fi
+- if [ "$TRAVIS_OS_NAME" = "osx" ]; then ./add-osx-cert.sh ; fi
+- if [ "$TRAVIS_OS_NAME" = "osx" ]; then echo -e APPLE_ID=$APPLE_ID >> .env ; fi
+- if [ "$TRAVIS_OS_NAME" = "osx" ]; then echo -e APPLE_PASSWORD=$APPLE_PASSWORD >> .env ; fi
+- if [ "$TRAVIS_OS_NAME" = "osx" ]; then echo -e APPLE_BUNDLE_ID=$APPLE_BUNDLE_ID >> .env ; fi
+- if [ "$TRAVIS_OS_NAME" = "osx" ]; then echo -e APPLE_PROVIDER=$APPLE_PROVIDER >> .env ; fi
+- if [ "$TRAVIS_OS_NAME" = "osx" ]; then npm run-script build:all ; fi
+- if [ "$TRAVIS_OS_NAME" = "windows" ]; then npm run-script build:win ; fi
+- if [ "$TRAVIS_OS_NAME" = "linux" ]; then npm run-script build:linux ; fi
+
+before_deploy: git fetch --tags
+
+deploy:
+  provider: releases
+  overwrite: true
+  file_glob: true
+  file: build*
+  api_key: 18f6488681c2d907fd4ec3d60fe05902e1d843bb
+  edge: true
+  draft: false
+  tag_name: $TRAVIS_TAG
+  target_commitish: $TRAVIS_COMMIT
+  skip_cleanup: true
+  on:
+    tags: true
+
+

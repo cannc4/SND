@@ -1,0 +1,5 @@
+provider: github
+private: true
+owner: cannc4
+repo: snd
+token: 8975bc73ef2b2e6ede366fac6628ef2074c7d2b7

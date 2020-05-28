@@ -1,0 +1,62 @@
+appId: com.inceio.snd
+productName: SND
+copyright: Copyright © 2020 SND
+
+asar: true
+
+directories:
+  buildResources: build-assets/
+  output: build/
+
+files:
+  - package.json
+  - resources/
+  - dist/
+  - main/
+  - renderer/
+  - backend/
+
+
+publish:
+    provider: github
+    private: true
+    owner: cannc4
+    repo: snd
+    token: 8975bc73ef2b2e6ede366fac6628ef2074c7d2b7
+  
+  
+mac:
+  icon: resources/logo
+  target: 
+    - dmg
+    - zip
+  files:
+    - package.json
+    - resources/
+    - dist/
+    - main/
+    - renderer/
+    - backend/
+    - vendor/mac/**/*
+  asarUnpack:
+    - vendor/mac
+    - node_modules
+
+  category: public.app-category.tools
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  entitlements: entitlements.mac.plist
+  entitlementsInherit: entitlements.mac.plist
+afterSign: notarize.js
+dmg:
+  sign: false
+
+win:
+  target: nsis
+  icon: resources/logo
+
+linux:
+  icon: resources/logo
+  target:
+    - deb
+    - AppImage

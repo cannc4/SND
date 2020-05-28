@@ -1,0 +1,21 @@
+.MixContainer {
+    z-index: 2;
+    min-height: 70% !important;
+    min-width: 70% !important;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden; }
+
+.Mix {
+    display: flex;
+    flex-direction: column;
+    min-height: 70% !important;
+    min-width: 70% !important;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll; 
+}
+    
+  

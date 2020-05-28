@@ -1,0 +1,254 @@
+/* CSS Variables */
+:root {
+  --tidal-color: rgb(42, 85, 110);
+  --cps-color: rgb(70, 117, 60);
+  --sc-color: rgb(131, 57, 34);
+  --global-color: rgba(255, 255, 255, 0.4);
+  --record-color: #bf2618;
+  --layout-background: rgb(40, 40, 40);
+  --global-white: rgb(200, 200, 200);
+  --accent-color: rgba(255, 255, 102, 0.25);
+  --accent-color-opaque: rgb(202, 202, 80); }
+
+.Home {
+  background-color: #000;
+  background: black;
+  height: calc(100% - 40px); }
+
+/*Disable views in specific cases*/
+.disabledView {
+  pointer-events: none;
+  filter: opacity(80%); }
+
+.enabledView {
+  pointer-events: auto;
+  filter: opacity(100%); }
+
+/* Animation for input submission */
+@keyframes submission_anim {
+  to {
+    background-color: var(--accent-color); } }
+
+.Executed {
+  animation-name: submission_anim;
+  animation-duration: 0.5s; }
+
+/* 
+  layout and app css 
+*/
+.PanelAdjuster {
+  margin: 5px;
+  max-height: calc(100% - 34px);
+  max-width: calc(100% - 10px);
+  overflow-y: auto;
+  scroll-behavior: smooth; }
+
+/*Panel Headers*/
+.PanelHeader {
+  background: rgba(45, 45, 45, 0.9);
+  padding: 2px 5px 2px 5px;
+  line-height: 20px;
+  border: solid 1px rgba(180, 180, 180, 0.1);
+  border-bottom: solid 2px var(--global-color);
+  font-weight: bold;
+  color: var(--global-white); }
+
+.PanelHeaderMixTracks {
+  display: flex;
+  flex-direction: row; }
+
+.PanelHeader.Tidal {
+  border-bottom: solid 2px var(--tidal-color); }
+
+.PanelHeader.SuperCollider {
+  border-bottom: solid 2px var(--sc-color); }
+
+/*Panel Close Button */
+.PanelClose {
+  color: var(--global-white);
+  float: right;
+  cursor: pointer; }
+
+/*------------INPUTS AND BUTTONS------------*/
+.Input {
+  font-size: 12px;
+  border: 1px solid rgba(125, 125, 125, 0.8);
+  cursor: text;
+  width: 100%; }
+
+.Button {
+  font-size: 10px;
+  color: #aaa;
+  border: 0.5px solid rgba(125, 125, 125, 0.8);
+  cursor: pointer;
+  padding: 3px 3x 3px 3px; }
+  .Button:hover {
+    background: rgba(255, 255, 158, 0.15);
+    color: white; }
+  .Button:active {
+    background: var(--accent-color); }
+  .Button.active {
+    background: var(--accent-color);
+    color: #333;
+    font-weight: bold; }
+  .Button.true {
+    background: #ccc;
+    color: #333;
+    font-weight: bold; }
+
+/*------------CODEMIRROR------------*/
+.CodeMirror {
+  background-color: rgba(255, 255, 255, 0.1) !important; }
+
+/*height*/
+div.cm-s-_style.CodeMirror-wrap, div.cm-s-_style_sc.CodeMirror-wrap {
+  height: 100%; }
+
+/*------------SCENES PANEL------------*/
+.Projects {
+  overflow-y: auto;
+  height: calc(100% - 4px); }
+
+.ProjectsButtons {
+  display: inline-flex;
+  justify-content: space-around;
+  width: 100%;
+  line-height: 15px; }
+  .ProjectsButtons button {
+    width: 100%; }
+
+/*All Project Items together*/
+.AllProjects {
+  margin-top: 10px;
+  padding: 1px;
+  border: 1px solid #000; }
+
+.ProjectName {
+  font-size: 12px;
+  width: calc(100% - 20px); }
+
+/*Project Items on Project Panel*/
+.ProjectItem {
+  /* justify-content: flex-start; */
+  border: 1px solid rgba(120, 120, 120, 0.75);
+  line-height: 12px;
+  width: 98%;
+  background: none;
+  margin: 1px; }
+
+/*Active Project Items on Project Panel*/
+.ProjectItem-active {
+  border: 1px solid rgba(200, 200, 200, 0.75);
+  width: 98%;
+  line-height: 12px;
+  background: var(--accent-color);
+  margin: 1px; }
+
+/*------------CONSOLE PANEL------------*/
+/*Tidal and SC Console textboxes*/
+.Console {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 100%; }
+  .Console p {
+    font-size: 11px;
+    color: #888;
+    line-height: 12px;
+    padding: 0 0 0 2px;
+    margin: 0px;
+    font-weight: bold; }
+
+.ConsoleTextBox {
+  height: calc(100% - 12px);
+  /* border: 1px solid rgba(120, 120, 120, 0.75); */
+  font-size: 14px;
+  margin: 2.5px;
+  cursor: text; }
+  .ConsoleTextBox > .react-codemirror2 {
+    height: calc(100% - 10px); }
+
+/*------------DEBUG CONSOLE PANEL------------*/
+.DebugConsole {
+  color: #ccc;
+  overflow: scroll;
+  overflow-y: auto;
+  height: 100%; }
+
+/*------------ADD CHANNEL PANEL------------*/
+.Canvas {
+  cursor: auto; }
+
+.RollHeader button {
+  /* margin-top: 2.5px; */
+  padding: 0 5px 0 5px;
+  border: none;
+  height: 20px; }
+
+.CanvasSketch {
+  padding-left: 2px;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  padding: 0;
+  z-index: 2;
+  transition: opacity 100ms ease-in-out; }
+
+/*------------MATRIX PANEL------------*/
+.MixTrack {
+  padding-left: 2px;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  padding: 0;
+  z-index: 2;
+  transition: opacity 50ms ease-in-out; }
+
+.Composition {
+  z-index: 0;
+  cursor: auto;
+  overflow-x: auto;
+  overflow-y: scroll;
+  min-width: 40% !important;
+  min-height: 40% !important;
+  height: 97%;
+  transition: opacity 50ms ease-in-out; }
+
+.InnerComposition {
+  z-index: 1;
+  cursor: auto;
+  overflow-x: auto;
+  overflow-y: scroll;
+  min-width: 40% !important;
+  min-height: 40% !important;
+  height: 97%;
+  transition: opacity 50ms ease-in-out; }
+
+.Timeline {
+  position: absolute;
+  overflow-x: scroll;
+  overflow-y: auto;
+  min-width: 40% !important;
+  min-height: 40% !important;
+  height: 97%;
+  pointer-events: none;
+  transition: opacity 100ms ease-in-out; }
+
+/*All Tracks Together*/
+.MatrixScroll {
+  width: 40px;
+  border: 1px solid rgba(200, 200, 200, 0.35);
+  border-radius: 2px;
+  margin-top: 10px;
+  opacity: 0.65;
+  transform: translate(0px, 40px);
+  box-shadow: inset 0px 0px 50px black; }
+/* 
+    Styling for help elements 
+*/
+.popup-content {
+  background: #1e1e1e !important; }
+
+/* .helpContainer {
+    background: aqua;
+} */

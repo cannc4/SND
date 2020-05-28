@@ -1,0 +1,83 @@
+.Composition {
+  display: auto;
+  overflow-x: auto;
+  overflow-y: auto;
+  min-width: 10% !important;
+  min-height: 10% !important;
+  height: 100%;
+  width: 100% !important; }
+
+.AllTrackGroups {
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+  overflow-y: auto;
+  min-width: 10% !important;
+  min-height: 10% !important;
+  height: 100%;
+  width: 100% !important; }
+
+.TrackGroup {
+  display: flex;
+  flex-direction: row;
+  padding-left: 2px;
+  height: 100%;
+  width: 100% !important;
+  padding: 0;
+  z-index: 2;
+  transition: opacity 100ms ease-in-out; }
+
+.TrackGroupHeader {
+  display: flex;
+  flex-direction: row;
+  background: rgba(200, 200, 200, 0.3);
+  font-weight: bold;
+  margin-bottom: 5px;
+  height: 100%;
+  width: 20%;
+  transition: background-color 100ms ease-in-out; }
+
+.TrackGroupHeader-Text {
+  padding-left: 7px;
+  font-size: 12px;
+  min-width: 20% !important;
+  max-width: 30% !important;
+  max-height: 30% !important; }
+
+.TrackGroupHeader-NameText {
+  padding-left: 7px;
+  min-width: 20% !important;
+  max-width: 30% !important;
+  max-height: 30% !important;
+  font-size: 12px;
+  border: none;
+  transition: all 500ms ease;
+  font-weight: bolder; }
+
+.TrackGroupHeaderButtons {
+  padding-left: 7px;
+  border: none;
+  height: 100%;
+  width: 30%;
+  transition: all 500ms ease;
+  font-weight: bolder; }
+
+.TrackGroupHeader-Button {
+  font-size: 10px;
+  color: #aaa;
+  border: 0.5px solid rgba(125, 125, 125, 0.8);
+  cursor: pointer;
+  padding: 3px 3x 3px 3px; }
+  .TrackGroupHeader-Button:hover {
+    background: rgba(255, 255, 158, 0.15);
+    color: white; }
+  .TrackGroupHeader-Button:active {
+    background: var(--accent-color); }
+  .TrackGroupHeader-Button.active {
+    background: var(--accent-color);
+    color: #333;
+    font-weight: bold; }
+  .TrackGroupHeader-Button.true {
+    background: #ccc;
+    color: #333;
+    font-weight: bold; }
