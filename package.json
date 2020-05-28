@@ -28,9 +28,11 @@
     "electron-store": "^5.1.1",
     "electron-updater": "^4.3.1",
     "hazardous": "^0.3.0",
+    "install": "^0.13.0",
     "node-notifier": "^7.0.1",
     "semver": "^7.3.2",
     "supercolliderjs": "^1.0.1",
+    "tslib": "^2.0.0",
     "uuid": "^8.1.0"
   },
   "devDependencies": {

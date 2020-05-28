@@ -2,19 +2,11 @@ appId: com.inceio.snd
 productName: SND
 copyright: Copyright © 2020 SND
 
-asar: true
+# asar: true
 
 directories:
   buildResources: build-assets/
   output: build/
-
-files:
-  - package.json
-  - resources/
-  - dist/
-  - main/
-  - renderer/
-  - backend/
 
 
 publish:
@@ -38,6 +30,7 @@ mac:
     - renderer/
     - backend/
     - vendor/mac/**/*
+    - node_modules/**/*
   asarUnpack:
     - vendor/mac
     - node_modules

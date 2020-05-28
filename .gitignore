@@ -6,4 +6,4 @@ dist
 build
 .idea
 yarn.lock
-wwwroot
+.env

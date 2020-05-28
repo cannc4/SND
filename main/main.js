@@ -14,7 +14,7 @@ const ProgressBar = require('electron-progressbar')
 const sc = require('supercolliderjs')
 dotenv.config()
 const nodeEnv = process.env.NODE_ENV
-let mainWindow, workerProcess, progressBar
+let mainWindow, workerProcess, scLang
 var appVersion = app.getVersion()
 let updateAvailable = false
 
@@ -125,12 +125,12 @@ async function bootSclang() {
     sclang_conf: null
   }
   try {
-    const lang = await sc.lang.boot(options)
-    await lang.interpret('s.boot')
+    scLang = await sc.lang.boot(options)
+    await scLang.interpret('s.boot')
     setTimeout(() => {
-      lang.interpret('{ SinOsc.ar(200, 0, 0.5) }.play;')
-      lang.interpret('{ SinOsc.ar(400, 0, 0.5) }.play;')
-      lang.interpret('{ SinOsc.ar(600, 0, 0.5) }.play;')
+      scLang.interpret('{ SinOsc.ar(200, 0, 0.5) }.play;')
+      scLang.interpret('{ SinOsc.ar(400, 0, 0.5) }.play;')
+      scLang.interpret('{ SinOsc.ar(600, 0, 0.5) }.play;')
       
     }, 5000);
     console.log("SuperCollider BOOTED")
@@ -246,8 +246,8 @@ app.on('will-quit', () => {
   if (workerProcess) {
     workerProcess.kill('SIGHUP')
   }
+  scLang.interpret('s.quit')
 })
 
 // Call the main function on setup
-// main()
-bootSclang()
+main()
